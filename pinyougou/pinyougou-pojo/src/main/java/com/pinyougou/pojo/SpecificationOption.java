@@ -60,7 +60,9 @@ public class SpecificationOption implements Serializable {
     public String getOptionName() {
         return optionName;
     }
-
+    public String getText() {
+        return optionName;
+    }
     /**
      * 设置规格项名称
      *

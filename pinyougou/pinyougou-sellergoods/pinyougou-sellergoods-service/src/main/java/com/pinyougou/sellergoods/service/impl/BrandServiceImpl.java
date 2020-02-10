@@ -10,7 +10,11 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 @Service(interfaceClass=BrandService.class,timeout = 5000)
 public class BrandServiceImpl implements BrandService {
     @Autowired
@@ -66,5 +70,18 @@ public class BrandServiceImpl implements BrandService {
         //所需的SQL语句类似 delete from tb_brand where id in(1,2,5,6)
         criteria.andIn("id",ids);
         return brandMapper.deleteByExample(example);
+    }
+
+    @Override
+    public List<Map<String, Object>> selectOptionList() {
+        List<Brand> brands = brandMapper.selectAll();
+        List<Map<String, Object>> list=new ArrayList<>();
+        for (Brand brand : brands) {
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put("id",brand.getId());
+            map.put("text",brand.getName());
+            list.add(map);
+        }
+        return list;
     }
 }

@@ -4,6 +4,7 @@ import com.github.pagehelper.PageInfo;
 import com.pinyougou.pojo.Brand;
 
 import java.util.List;
+import java.util.Map;
 
 public interface BrandService {
     /***
@@ -22,4 +23,6 @@ public interface BrandService {
     Brand getOneById(long id);
 
     int deleteByIds(List<Long> ids);
+
+    List<Map<String, Object>> selectOptionList();
 }

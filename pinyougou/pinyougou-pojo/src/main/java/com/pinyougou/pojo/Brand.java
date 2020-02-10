@@ -60,6 +60,13 @@ public class Brand implements Serializable {
     }
 
     /**
+     * 添加text属性
+     * @return
+     */
+    public String  getText(){
+        return name;
+    }
+    /**
      * 获取品牌首字母
      *
      * @return first_char - 品牌首字母

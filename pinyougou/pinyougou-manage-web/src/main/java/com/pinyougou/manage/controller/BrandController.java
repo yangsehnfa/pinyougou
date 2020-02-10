@@ -7,7 +7,6 @@ import com.pinyougou.pojo.Brand;
 import com.pinyougou.sellergoods.service.BrandService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -100,5 +99,12 @@ public class BrandController {
             e.printStackTrace();
         }
         return new Result(false,"品牌删除失败");
+    }
+    /***
+     * 查询数据
+     */
+    @RequestMapping(value = "/selectOptionList",method = RequestMethod.GET)
+    public List<Map<String,Object>> jsonlist(){
+        return brandService.selectOptionList();
     }
 }
